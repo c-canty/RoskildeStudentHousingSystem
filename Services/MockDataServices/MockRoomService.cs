@@ -12,5 +12,9 @@ namespace RoskildeStudentHousing.Services.MockDataServices
             _rooms = MockData.MockDataRoom.GetAllRooms();
         }
 
+        public IEnumerable<Room> GetRooms()
+        {
+            return _rooms;
+        }
     }
 }

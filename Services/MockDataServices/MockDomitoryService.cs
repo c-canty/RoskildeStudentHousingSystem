@@ -12,5 +12,10 @@ namespace RoskildeStudentHousing.Services.MockDataServices
             _dormitoryList = MockData.MockDataDormitory.GetAllDormitories();
         }
 
+        public IEnumerable<Dormitory> GetDormitory()
+        {
+            return _dormitoryList;
+        }
+
     }
 }

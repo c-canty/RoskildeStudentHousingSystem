@@ -8,7 +8,7 @@ namespace RoskildeStudentHousing.Pages.Leasing
     {
         ILeasingService _ileasingService;
 
-        public List<Models.Leasing> leasing;
+        public IEnumerable<Models.Leasing> leasing { get; set; }
 
         public GetAllLeasingModel(ILeasingService leasingService)
         {
@@ -17,7 +17,7 @@ namespace RoskildeStudentHousing.Pages.Leasing
 
         public void OnGet()
         {
-            leasing = MockData.MockDataLeasing.GetAllLeasings();
+            leasing = _ileasingService.GetLeasings();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RoskildeStudentHousing.Pages.Student
     {
         IStudentService _iStudentService;
 
-        public List<Models.Student>  students { get; set; }
+        public IEnumerable<Models.Student> students { get; set; }
 
         public GetAllStudentModel(IStudentService studentService)
         {
@@ -18,7 +18,7 @@ namespace RoskildeStudentHousing.Pages.Student
 
         public void OnGet()
         {
-            students = MockData.MockDataStudent.GettAllStudents();
+            students = _iStudentService.GetStudents();
         }
     }
 }

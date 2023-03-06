@@ -8,7 +8,7 @@ namespace RoskildeStudentHousing.Pages.Dormitory
     {
         IDormitoryService _idormitoryService;
 
-        public List<Models.Dormitory> dormitory;
+        public IEnumerable<Models.Dormitory> dormitory { get; set; }
 
         public GettAllDormitoryModel(IDormitoryService dormitoryService)
         {
@@ -17,7 +17,7 @@ namespace RoskildeStudentHousing.Pages.Dormitory
 
         public void OnGet()
         {
-            dormitory = MockData.MockDataDormitory.GetAllDormitories();
+            dormitory = _idormitoryService.GetDormitory();
         }
     }
 }

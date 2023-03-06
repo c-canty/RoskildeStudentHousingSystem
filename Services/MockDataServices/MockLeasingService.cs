@@ -11,7 +11,11 @@ namespace RoskildeStudentHousing.Services.MockDataServices
         {
             _leasings = MockData.MockDataLeasing.GetAllLeasings();
         }
-
+        
+        public IEnumerable<Leasing> GetLeasings()
+        {
+            return _leasings;
+        }
 
     }
 }
