@@ -1,6 +1,16 @@
-﻿namespace RoskildeStudentHousing.Services.MockDataServices
+﻿using RoskildeStudentHousing.Models;
+using RoskildeStudentHousing.Services.Interfaces;
+
+namespace RoskildeStudentHousing.Services.MockDataServices
 {
-    public class MockDomitoryService
+    public class MockDomitoryService : IDormitoryService 
     {
+        private List<Dormitory> dormitoryList;
+
+        public MockDomitoryService()
+        {
+            dormitoryList = MockData.MockDataDormitory.GetAllDormitories();
+        }
+
     }
 }

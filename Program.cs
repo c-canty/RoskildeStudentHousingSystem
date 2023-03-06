@@ -1,7 +1,14 @@
+using RoskildeStudentHousing.Services.Interfaces;
+using RoskildeStudentHousing.Services.MockDataServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IDormitoryService, MockDomitoryService>();
+builder.Services.AddSingleton<ILeasingService, MockLeasingService>();
+builder.Services.AddSingleton<IRoomService, MockRoomService>();
+builder.Services.AddSingleton<IStudentService, MockStudentService>();
 
 var app = builder.Build();
 
