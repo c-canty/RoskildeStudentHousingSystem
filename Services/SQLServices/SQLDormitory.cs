@@ -112,6 +112,31 @@ namespace RoskildeStudentHousing.Services.SQLServices
         }
         #endregion
 
+        #region Filter By Name or Address
+        public static IEnumerable<Dormitory> FilterDormsByName(string filter)
+        {
+            List<Dormitory> dormList = new List<Dormitory>();
+            string query = $"SELECT * FROM Dormitory WHERE Name LIKE '%{filter}%' OR Address LIKE '%{filter}%';";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Dormitory dorm = new Dormitory();
+                        dorm.DormitoryNo = Convert.ToInt32(reader[0]);
+                        dorm.Name = Convert.ToString(reader[1]);
+                        dorm.Address = Convert.ToString(reader[2]);
+                        dormList.Add(dorm);
+                    }
+                }
+            }
+            return dormList;
+        }
+
 
     }
 }
