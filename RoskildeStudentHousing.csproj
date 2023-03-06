@@ -6,4 +6,10 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Interfaces\" />
+    <Folder Include="Services\MockDataServices\" />
+    <Folder Include="Services\SQLServices\" />
+  </ItemGroup>
+
 </Project>
