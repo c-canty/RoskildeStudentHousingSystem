@@ -14,7 +14,7 @@ namespace RoskildeStudentHousing.MockData
         public static List<Student> GettAllStudents()
         {
             return studentsList;
-        };
+        }
 
     }
 }

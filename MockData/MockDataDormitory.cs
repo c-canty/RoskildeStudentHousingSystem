@@ -6,7 +6,9 @@ namespace RoskildeStudentHousing.MockData
     {
         public static List<Dormitory> dormitoriesList = new List<Dormitory>()
         {
-
+            new Dormitory(1, "Silo", "Roskilde"),
+            new Dormitory(2, "Musicon", "Holbæk"),
+            new Dormitory(3, "Trekroner", "Slagelse")
         };
 
 
