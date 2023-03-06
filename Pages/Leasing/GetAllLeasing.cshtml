@@ -1,4 +1,60 @@
 ﻿@page
 @model RoskildeStudentHousing.Pages.Leasing.GetAllLeasingModel
 @{
+    ViewData["Title"] = "GetLeasing";
 }
+
+
+<h4 style="color:red">List of all leasings</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Leasing number
+            </th>
+            <th>
+                Leasing date start
+            </th>
+            <th>
+                Leasing date end
+            </th>
+            <th>
+                Student number
+            </th>
+            <th>
+                Room number
+            </th>
+            <th>
+                Dormitory number
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.leasing != null)
+        {
+            @foreach (var leasing in Model.leasing)
+            {
+                <tr>
+                    <td>
+                        @leasing.LeasingNo
+                    </td>
+                    <td>
+                        @leasing.DateTimeFrom
+                    </td>
+                    <td>
+                        @leasing.DateTimeTo
+                    </td>
+                    <td>
+                        @leasing.StudentNo
+                    </td>
+                    <td>
+                        @leasing.RoomNo
+                    </td>
+                    <td>
+                        @leasing.DormitoryNo
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

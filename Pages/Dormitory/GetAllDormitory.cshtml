@@ -1,0 +1,42 @@
+﻿@page
+@model RoskildeStudentHousing.Pages.Dormitory.GettAllDormitoryModel
+@{
+    ViewData["Title"] = "GetDormintory";
+}
+
+
+<h4 style="color:red">List of all rooms</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dormitory number
+            </th>
+            <th>
+                Dormitory Name
+            </th>
+            <th>
+                Dormitory Address
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.dormitory != null)
+        {
+            @foreach (var dormitory in Model.dormitory)
+            {
+                <tr>
+                    <td>
+                        @dormitory.DormitoryNo
+                    </td>
+                    <td>
+                        @dormitory.Name
+                    </td>
+                    <td>
+                        @dormitory.Address
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

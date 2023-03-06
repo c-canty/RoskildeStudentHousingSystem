@@ -18,7 +18,7 @@ namespace RoskildeStudentHousing.Pages.Student
 
         public void OnGet()
         {
-            students = _iStudentService.GetStudents();
+            students = MockData.MockDataStudent.GettAllStudents();
         }
     }
 }
