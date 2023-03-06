@@ -9,5 +9,12 @@
         public Student()
         {
         }
+
+        public Student(int studentNo, string name, string address)
+        {
+            StudentNo = studentNo;
+            Name = name;
+            Address = address;
+        }
     }
 }
