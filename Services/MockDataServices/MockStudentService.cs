@@ -5,11 +5,11 @@ namespace RoskildeStudentHousing.Services.MockDataServices
 {
     public class MockStudentService : IStudentService
     {
-        private List<Student> students;
+        private List<Student> _students;
 
         public MockStudentService()
         {
-            students = MockData.MockDataStudent.GettAllStudents();
+            _students = MockData.MockDataStudent.GettAllStudents();
         }
 
     }
