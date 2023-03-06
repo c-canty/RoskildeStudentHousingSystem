@@ -5,11 +5,11 @@ namespace RoskildeStudentHousing.Services.MockDataServices
 {
     public class MockLeasingService : ILeasingService
     {
-        private List<Leasing> leasings;
+        private List<Leasing> _leasings;
 
         public MockLeasingService()
         {
-            leasings = MockData.MockDataLeasing.GetAllLeasings();
+            _leasings = MockData.MockDataLeasing.GetAllLeasings();
         }
 
 

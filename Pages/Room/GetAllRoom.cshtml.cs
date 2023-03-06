@@ -1,0 +1,23 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using RoskildeStudentHousing.Services.Interfaces;
+
+namespace RoskildeStudentHousing.Pages.Room
+{
+    public class GetAllRoomModel : PageModel
+    {
+        IRoomService _iroomService;
+
+        public List<Models.Room> rooms { get; set; }
+
+        public GetAllRoomModel(IRoomService roomService)
+        {
+            _iroomService = roomService;
+        }
+
+        public void OnGet()
+        {
+            rooms = MockData.MockDataRoom.GetAllRooms();
+        }
+    }
+}
