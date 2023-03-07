@@ -57,7 +57,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Update Room
-        public static void UpdateStudent(Room r)
+        public static void UpdateRoom(Room r)
         {
             string query = $"UPDATE Room SET Price = @Price, WHERE Id = {r.RoomNo} AND DormiD = {r.DormitoryNo};";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -195,7 +195,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Filter By Dorm
-        public static IEnumerable<Room> FilterRoomsByDormName(int dorm)
+        public static IEnumerable<Room> FilterRoomsByDormId(int dorm)
         {
             List<Room> roomList = new List<Room>();
             string query = $"SELECT * FROM Room WHERE DormId = {dorm};";

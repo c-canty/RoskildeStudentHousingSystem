@@ -1,10 +1,28 @@
 ﻿using RoskildeStudentHousing.Models;
+using RoskildeStudentHousing.Services.SQLServices;
 
 namespace RoskildeStudentHousing.Services.Interfaces
 {
     public interface IRoomService
     {
-        IEnumerable<Room> GetRooms();
+        public IEnumerable<Room> GetRooms();
+
+        public void AddRoom(Room r);
+
+        public void UpdateRoom(Room r);
+
+        public void DeleteStudent(Room r);
+
+        public Room GetRoomById(string rid, int did);
+
+        public IEnumerable<Room> FilterDormsByName(string filter);
+
+        public IEnumerable<Room> FilterDormsByType(string filter);
+
+        public IEnumerable<Room> FilterDormsByPrice(int min, int max);
+
+        public IEnumerable<Room> FilterRoomsByDormId(int dorm);
+        
 
 
     }
