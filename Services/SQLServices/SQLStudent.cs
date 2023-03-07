@@ -5,7 +5,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
 {
     public class SQLStudent //Should work (Untested)
     {
-        static string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = RoskildeStudentHousingDB; Integrated Security = True; Connect Timeout = 30; Encrypt=False;Trust Server Certificate=False;Application Intent = ReadWrite; Multi Subnet Failover=False";
+        static string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = RoskildeStudentHousingDB; Integrated Security = True; Connect Timeout = 30; Encrypt=False;";
 
         #region Get All Dorms
         public static List<Student> GetAllStudents()
