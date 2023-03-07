@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 
 namespace RoskildeStudentHousing.Services.SQLServices
 {
-    public class SQLRoom
+    public class SQLRoom // Should Work (Untested)
     {
         static string ConnectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog = RoskildeStudentHousingDB; Integrated Security = True; Connect Timeout = 30; Encrypt=False;Trust Server Certificate=False;Application Intent = ReadWrite; Multi Subnet Failover=False";
 
@@ -22,10 +22,11 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     while (reader.Read())
                     {
                         Room r = new Room();
-                        r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.RoomNo = Convert.ToInt32(reader[0]);                       
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
+                        
                         roomList.Add(r);
                     }
                 }
@@ -101,9 +102,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     while (reader.Read())
                     {
                         r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
                     }
                 }
             }
@@ -127,9 +128,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     {
                         Room r = new Room();
                         r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
                         roomList.Add(r);
                     }
                 }
@@ -154,9 +155,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     {
                         Room r = new Room();
                         r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
                         roomList.Add(r);
                     }
                 }
@@ -182,9 +183,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     {
                         Room r = new Room();
                         r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
                         roomList.Add(r);
                     }
                 }
@@ -209,9 +210,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
                     {
                         Room r = new Room();
                         r.RoomNo = Convert.ToInt32(reader[0]);
-                        r.DormitoryNo = Convert.ToInt32(reader[1]);
+                        r.Type = Convert.ToString(reader[1]);
                         r.Price = Convert.ToInt32(reader[2]);
-                        r.Type = Convert.ToString(reader[3]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
                         roomList.Add(r);
                     }
                 }
