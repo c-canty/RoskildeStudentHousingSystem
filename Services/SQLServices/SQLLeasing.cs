@@ -59,7 +59,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Update Leasing
-        public static void UpdateStudent(Leasing r)
+        public static void UpdateLeasing(Leasing r)
         {
             string query = $"UPDATE Leasing SET DateFrom = @DateFrom, DateTo = @DateFrom WHERE Id = {r.LeasingNo};";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
@@ -76,7 +76,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Delete Leasing
-        public static void DeleteStudent(Leasing r)
+        public static void DeleteLeasing(Leasing r)
         {
             string query = $"DELETE FROM Leasing WHERE Id = {r.LeasingNo};";
             using (SqlConnection connection = new SqlConnection(ConnectionString))

@@ -17,7 +17,7 @@ namespace RoskildeStudentHousing.Pages.Leasing
 
         public void OnGet()
         {
-            leasing = _ileasingService.GetLeasings();
+            leasing = _ileasingService.GetAllLeasings();
         }
     }
 }
