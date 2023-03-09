@@ -40,20 +40,8 @@ namespace RoskildeStudentHousing.Pages.SharedClass
             return Page();
         }
         public IActionResult OnPostDormSearch(string dorm)
-        {
-            if(SearchString == "silo")
-            {
-                SearchString = "Silo";
-            }
-            if (SearchString == "musicon")
-            {
-                SearchString = "Musicon";
-            }
-            if (SearchString == "spritfabrikken")
-            {
-                SearchString = "Spritfabrikken";
-            }
-            leasing = _dormitoryService.GetAllCollectedInformationFromDorm2(SearchString);
+        {             
+            leasing = _dormitoryService.GetAllCollectedInformationFromDorm2(SearchStringDorm); ;
             return Page();
         }
     }
