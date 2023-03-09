@@ -38,17 +38,18 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #region Add Room
         public static void AddRoom(Room r)
         {
-            string query = $"insert into Room( RoomNo, DormitoryNo, Price, Type) values( @RoomNo, @DormitoryNo, @Price, @Type);";
+            string query = $"insert into Room(Id, DormId, Price, Type) values(@Id, @DormId, @Price, @Type);";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 {
 
-                    command.Parameters.AddWithValue("@RoomNo", r.RoomNo);
-                    command.Parameters.AddWithValue("@DormitoryNo", r.DormitoryNo);
+                    command.Parameters.AddWithValue("@Id", r.RoomNo);
+                    command.Parameters.AddWithValue("@Type", r.Type);                    
                     command.Parameters.AddWithValue("@Price", r.Price);
-                    command.Parameters.AddWithValue("@Type", r.Type);
+                    command.Parameters.AddWithValue("@DormId", r.DormitoryNo);
+
 
                     int affectedRows = command.ExecuteNonQuery();
                 }

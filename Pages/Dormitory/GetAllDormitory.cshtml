@@ -41,11 +41,10 @@
                         @dormitory.Address
                     </td>
                     <td>
-                        <ul class="list-inline m-0">
-                            <li class="list-inline-item">
-                                <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" title="Get all rooms for this Dormitory" asp-page="/SharedClass/DormitoryRooms" asp-route-id="@dormitory.DormitoryNo"><i class="fa fa-edit"></i></a>
-                            </li>
-                        </ul>
+                        <a asp-page="/SharedClass/DormitoryRooms" asp-route-id="@dormitory.DormitoryNo">See a list of all rooms in this dormitory</a>                           
+                    </td>
+                    <td>
+                        <a asp-page="/Room/CreateRoom" asp-route-did="@dormitory.DormitoryNo">Add Room to Dormitory</a>
                     </td>
                 </tr>
             }
