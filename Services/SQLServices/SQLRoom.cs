@@ -221,6 +221,38 @@ namespace RoskildeStudentHousing.Services.SQLServices
         }
         #endregion
 
+        #region Get Fucking Everything By Room
+        public static IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromRoom(int id)
+        {
+            List<LeasingRoomStudentDorm> roomList = new List<LeasingRoomStudentDorm>();
+            string query = $"SELECT s.Id AS StudentId, s.Name AS StudentName, r.Id AS RoomId, d.address,d.Name, r.Price,r.Type AS RoomType,l.DateFrom,l.DateTo FROM Leasing AS l JOIN Student AS s ON s.Id = l.StudentId JOIN Dormitory AS d ON d.Id = l.DormId JOIN Room AS r ON r.Id = l.RoomId WHERE r.Id = {id};";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        LeasingRoomStudentDorm r = new LeasingRoomStudentDorm();
+                        r.StudentId = Convert.ToString(reader[0]);
+                        r.StudentName = Convert.ToString(reader[1]);
+                        r.RoomId = Convert.ToInt32(reader[2]);
+                        r.Address = Convert.ToString(reader[3]);
+                        r.DormName = Convert.ToString(reader[4]);
+                        r.Price = Convert.ToInt32(reader[5]);
+                        r.RoomType = Convert.ToString(reader[6]);
+                        r.DateFrom = Convert.ToDateTime(reader[7]);
+                        r.DateTo = Convert.ToDateTime(reader[8]);
+
+                        roomList.Add(r);
+                    }
+                }
+            }
+            return roomList;
+        }
+        #endregion
 
     }
 

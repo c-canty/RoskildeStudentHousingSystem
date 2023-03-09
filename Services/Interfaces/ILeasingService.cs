@@ -22,12 +22,6 @@ namespace RoskildeStudentHousing.Services.Interfaces
         public IEnumerable<Leasing> GetLeasingsByDormId(int id);
 
         public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformation();
-
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromDorm(string dorm);
-
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromRoom(int id);
-
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromStudentId(string sid);
        
 
 

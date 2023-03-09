@@ -36,6 +36,10 @@ namespace RoskildeStudentHousing.Services.SQLServices
         {
             return SQLStudent.FilterDormsByName(filter);
         }
-        
+
+        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromStudentId(string sid)
+        {
+            return SQLStudent.GetAllCollectedInformationFromStudentId(sid);
+        }
     }
 }
