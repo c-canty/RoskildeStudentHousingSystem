@@ -36,7 +36,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return SQLDormitory.FilterDormsByName(filter);
         }
 
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromDorm(string dorm)
+        public IEnumerable<DormsRooms> GetAllCollectedInformationFromDorm(string dorm)
         {
             return SQLDormitory.GetAllCollectedInformationFromDorm(dorm);
         }

@@ -17,7 +17,7 @@ namespace RoskildeStudentHousing.Services.Interfaces
 
         public IEnumerable<Dormitory> FilterDormsByName(string filter);
 
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromDorm(string dorm);
+        public IEnumerable<DormsRooms> GetAllCollectedInformationFromDorm(string dorm);
 
         public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromDorm2(string dorm);
 

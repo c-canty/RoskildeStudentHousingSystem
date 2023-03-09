@@ -140,10 +140,10 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Get Fucking Everything By Dorm
-        public static IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromDorm(string dorm)
+        public static IEnumerable<DormsRooms> GetAllCollectedInformationFromDorm(string dorm)
         {
-            List<LeasingRoomStudentDorm> roomList = new List<LeasingRoomStudentDorm>();
-            string query = $"SELECT r.Id AS RoomId, d.address,d.Name, r.Price,r.Type AS RoomType FROM Room AS r JOIN Dormitory AS d ON d.Id = r.DormId WHERE r.DormId = {dorm}";
+            List<DormsRooms> roomList = new List<DormsRooms>();
+            string query = $"select * from Dormitory join Room on Dormitory.Id = Room.DormId and Dormitory.Id = {dorm}";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -153,19 +153,15 @@ namespace RoskildeStudentHousing.Services.SQLServices
                 {
                     while (reader.Read())
                     {
-                        LeasingRoomStudentDorm r = new LeasingRoomStudentDorm();
-                        r.StudentId = Convert.ToString(reader[0]);
-                        r.StudentName = Convert.ToString(reader[1]);
-                        r.RoomId = Convert.ToInt32(reader[2]);
-                        r.Address = Convert.ToString(reader[3]);
-                        r.DormName = Convert.ToString(reader[4]);
-                        r.Price = Convert.ToInt32(reader[5]);
-                        r.RoomType = Convert.ToString(reader[6]);
-                        r.DateFrom = Convert.ToDateTime(reader[7]);
-                        r.DateTo = Convert.ToDateTime(reader[8]);
-                        r.LeasingId = Convert.ToInt32(reader[9]);
+                        DormsRooms Droom = new DormsRooms();
+                        Droom.DormitoryNo = Convert.ToInt32(reader[0]);
+                        Droom.Name = Convert.ToString(reader[1]);
+                        Droom.Address = Convert.ToString(reader[2]);
+                        Droom.RoomNo = Convert.ToInt32(reader[3]);
+                        Droom.Type = Convert.ToString(reader[4]);
+                        Droom.Price = Convert.ToInt32(reader[5]);                        
 
-                        roomList.Add(r);
+                        roomList.Add(Droom);
                     }
                 }
             }

@@ -27,19 +27,19 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.leasingRoomStudentDorms != null)
+        @if (Model.dormsRooms != null)
         {
-            @foreach (var DormRoom in Model.leasingRoomStudentDorms)
+            @foreach (var DormRoom in Model.dormsRooms)
             {
                 <tr>
                     <td>
-                        @DormRoom.DormName
+                        @DormRoom.Name
                     </td>
                     <td>
-                        @DormRoom.RoomId
+                        @DormRoom.RoomNo
                     </td>
                     <td>
-                        @DormRoom.RoomType
+                        @DormRoom.Type
                     </td>
                     <td>
                         @DormRoom.Address
