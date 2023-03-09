@@ -160,6 +160,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
                         r.RoomType = Convert.ToString(reader[6]);
                         r.DateFrom = Convert.ToDateTime(reader[7]);
                         r.DateTo = Convert.ToDateTime(reader[8]);
+                        r.LeasingId = Convert.ToInt32(reader[9]);
 
                         roomList.Add(r);
                     }

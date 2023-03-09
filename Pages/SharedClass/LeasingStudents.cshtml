@@ -1,4 +1,83 @@
 ﻿@page
 @model RoskildeStudentHousing.Pages.SharedClass.LeasingStudentsModel
 @{
+    ViewData["Title"] = "GetLeasingByStudent";
 }
+
+<h4 style="color:red">List of all by Student</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student number
+            </th>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Leasing number
+            </th>
+            <th>
+                Leasing date start
+            </th>
+            <th>
+                Leasing date end
+            </th>           
+            <th>
+                Room number
+            </th>
+            <th>
+                Room Type
+            </th>
+            <th>
+                Dormitory Name
+            </th>
+            <th>
+                Dormitory Address
+            </th>
+            <th>
+                Price Per Month
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.leasing != null)
+        {
+            @foreach (var leasing in Model.leasing)
+            {
+                <tr>
+                    <td>
+                        @leasing.StudentId    
+                    </td>
+                    <td>
+                        @leasing.StudentName               
+                    </td>
+                    <td>
+                        @leasing.LeasingId      
+                    </td>
+                    <td>
+                        @leasing.DateFrom       
+                    </td>
+                    <td>
+                        @leasing.DateTo  
+                    </td>
+                    <td>
+                        @leasing.RoomId 
+                    </td>
+                    <td>
+                        @leasing.RoomType 
+                    </td>
+                    <td>
+                        @leasing.DormName 
+                    </td>
+                    <td>
+                        @leasing.Address 
+                    </td>
+                    <td>
+                        @leasing.Price ,-
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

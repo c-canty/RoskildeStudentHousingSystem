@@ -27,10 +27,10 @@ namespace RoskildeStudentHousing.Pages.SharedClass
            leasing = _iStudentService.GetAllCollectedInformationFromStudentId(studentId);
             return RedirectToPage("LeasingStudents");
         }
-        //public IActionResult OnPostReset()
-        //{
-        //    leasing = _iStudentService.GetAllCollectedInformationFromStudentId(studentId);
-        //    return RedirectToPage("LeasingStudents");
-        //}
+        public IActionResult OnPostReset()
+        {
+            leasing = _iLeasingService.GetAllCollectedInformation();
+            return RedirectToPage("LeasingStudents");
+        }
     }
 }
