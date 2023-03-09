@@ -8,6 +8,7 @@ namespace RoskildeStudentHousing.Pages.SharedClass
     {
         IDormitoryService _idormitoryService;
 
+        [BindProperty]
         public IEnumerable<Models.LeasingRoomStudentDorm> leasingRoomStudentDorms { get; set; }
 
         public DormitoryRoomsModel(IDormitoryService dormitoryService)
@@ -15,9 +16,19 @@ namespace RoskildeStudentHousing.Pages.SharedClass
             _idormitoryService = dormitoryService;
         }
 
-        public void OnGet()
+        public IActionResult OnGet(string id)
         {
-            //leasingRoomStudentDorms = _idormitoryService.GetAllCollectedInformationFromDorm();
+            leasingRoomStudentDorms = _idormitoryService.GetAllCollectedInformationFromDorm(id);
+            if (leasingRoomStudentDorms == null)
+            {
+                return RedirectToPage("/NotFound");
+            }
+            return Page();
+        }
+
+        public IActionResult OnPost()
+        {
+            return Page();
         }
     }
 }
