@@ -4,6 +4,9 @@
     ViewData["Title"] = "GetDormintory";
 }
 
+<p>
+
+</p>
 
 <h4 style="color:red">List of all rooms</h4>
 <table class="table">
@@ -34,6 +37,13 @@
                     </td>
                     <td>
                         @dormitory.Address
+                    </td>
+                    <td>
+                        <ul class="list-inline m-0">
+                            <li class="list-inline-item">
+                                <a class="btn btn-primary btn-sm" type="button" data-toggle="tooltip" title="Get all rooms for this Dormitory" asp-page="/SharedClass/DormitoryRooms" asp-route-id="@dormitory.DormitoryNo"><i class="fa fa-edit"></i></a>
+                            </li>
+                        </ul>
                     </td>
                 </tr>
             }
