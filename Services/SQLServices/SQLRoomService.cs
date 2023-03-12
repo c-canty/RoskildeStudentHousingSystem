@@ -60,6 +60,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
         {
             return SQLRoom.GetAllCollectedInformationFromRoom(id, dorm);
         }
-
+        public  List<Room> GetAllEmptyRoomsByDorm(string dorm)
+        {
+            return SQLRoom.GetAllEmptyRoomsByDorm(dorm);
+        }
     }
 }

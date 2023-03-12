@@ -20,6 +20,14 @@
             <input type="submit" asp-page-handler="Reset" value="View All Rooms" class="btn btn-primary" />
         </form>
     </div>
+
+
+<div class="col-4">
+    <form method="post" class="form-inline">
+        <input asp-for="@Model.searchString" class="form-control mr-1" placeholder="Search Dorms For Empty Rooms" />
+        <input type="submit" asp-page-handler="EmptyDormSearch" value="Search" class="btn btn-primary" />
+    </form>
+</div>
 </div>
 
 <table class="table">
