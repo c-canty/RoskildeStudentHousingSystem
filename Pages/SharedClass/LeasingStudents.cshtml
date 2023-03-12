@@ -6,46 +6,74 @@
 
 <h4 style="color:red">Find Information about Leasings</h4>
 
-<div class="row">
-    <div class="col-4"><h5>Search Student Id</h5></div>
-    <div class="col-4"><h5>Search Dorm Name</h5></div>
-    <div class="col-4"><h5>Search Room w/ Dorm Name</h5></div>
-    <div class="col-4"></div>
+<div class="form-group">
+    <table class="table">
+        <thead>
+            <th>
+            <div class="col-4"><h5>Search Student Id</h5></div>
+            </th>
+            <th>
+            <div class="col-4"><h5>Search Dorm Name</h5></div>
+            </th>
+            <th>
+            <div class="col-4"><h5>Search Room w/ Dorm Name</h5></div>
+            </th>
+            <th>
+            <div class="col-4"><h5>Search By Date</h5></div>
+            </th>
+            <th>
+            <div class="col-4"><h5>All Leasings</h5></div>
+            </th>
+       
+        </thead>
+       <tbody>
+       <td>
+            <div class="col-4">
+                <form method="post" class="form-inline">
+                    <input asp-for="@Model.SearchString" class="form-control mr-1" placeholder="Enter Student Id" />
+                    <input type="submit" asp-page-handler="IdSearch" value="See All" class="btn btn-primary" />
+                </form>
+            </div>
+       </td>
+            
+        <td>
+            <div class="col-4">
+                <form method="post" class="form-inline">
+                    <input asp-for="@Model.SearchStringDorm" class="form-control mr-1" placeholder="Dorm Name" />
+                    <input type="submit" asp-page-handler="DormSearch" value="Select Dorm" class="btn btn-primary" />
+                </form>
+            </div>
+        </td>
+        <td>
+            <div class="col-4">
+                <form method="post" class="form-inline">
+                    <input asp-for="@Model.SearchStringDorm2" class="form-control mr-1" placeholder="Dorm Name" />
+                    <input asp-for="@Model.SearchStringRid" class="form-control mr-1" placeholder="Room No." />
+                    <input type="submit" asp-page-handler="RoomSearch" value="Search Room" class="btn btn-primary" />
+                </form>
+            </div>
+        </td>
+        <td>
+            <div class="col-4">
+                <form method="post" class="form-inline">
+                    <input asp-for="@Model.DateFrom" type="datetime-local" />
+                    <input asp-for="@Model.DateTo" type="datetime-local" />
+                    <input type="submit" asp-page-handler="DateSearch" value="Search Dates" class="btn btn-primary" />
+                </form>
+            </div>
+        </td>
+        <td>
+            <div class="col-4">
+                <form method="post" class="form-inline">
+                    <input type="submit" asp-page-handler="Reset" value="Reset" class="btn btn-primary" />
+                </form>
+            </div>
+        </td>
+        </tbody>
 </div>
-<div class="row">
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <input asp-for="@Model.SearchString" class="form-control mr-1" placeholder="Enter Student Id" />
-            <input type="submit" asp-page-handler="IdSearch" value="See All" class="btn btn-primary" />
-        </form>        
-    </div>   
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <input asp-for="@Model.SearchStringDorm" class="form-control mr-1" placeholder="Dorm Name" />
-            <input type="submit" asp-page-handler="DormSearch" value="Select Dorm" class="btn btn-primary" />
-        </form>
-    </div>
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <input asp-for="@Model.SearchStringDorm2" class="form-control mr-1" placeholder="Dorm Name" />
-            <input asp-for="@Model.SearchStringRid" class="form-control mr-1" placeholder="Room No." />
-            <input type="submit" asp-page-handler="RoomSearch" value="Search Room" class="btn btn-primary" />
-        </form>
-    </div>
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <input asp-for="@Model.DateFrom" type="datetime-local" />
-            <input asp-for="@Model.DateTo" type="datetime-local" />
-            <input type="submit" asp-page-handler="DateSearch" value="Search Dates" class="btn btn-primary" />
-        </form>
-    </div>
-    <div class="col-4">
-        <form method="post" class="form-inline">
-            <input type="submit" asp-page-handler="Reset" value="Reset" class="btn btn-primary" />
-        </form>
-    </div>
-</div>
+           
 
+</table>
 <table class="table">
     <thead>
         <tr>
