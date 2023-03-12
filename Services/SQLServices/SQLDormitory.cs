@@ -143,7 +143,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         public static IEnumerable<DormsRooms> GetAllCollectedInformationFromDorm(string dorm)
         {
             List<DormsRooms> roomList = new List<DormsRooms>();
-            string query = $"select * from Dormitory join Room on Dormitory.Id = Room.DormId and Dormitory.Id = {dorm}";
+            string query = $"select * from Dormitory join Room on Dormitory.Id = Room.DormId and Dormitory.Id like {dorm}";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
