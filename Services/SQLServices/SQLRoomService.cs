@@ -10,7 +10,12 @@ namespace RoskildeStudentHousing.Services.SQLServices
         {
             return SQLRoom.GetAllRooms();
         }
-        
+
+        public IEnumerable<Room> GetEmptyRooms()
+        {
+            return SQLRoom.GetAllEmptyRooms();
+        }
+
         public void AddRoom(Room r)
         {
             SQLRoom.AddRoom(r);
@@ -51,10 +56,13 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return SQLRoom.FilterRoomsByDormId(dorm);
         }
 
-        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromRoom(int id)
+        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationFromRoom(string id, string dorm)
         {
-            return SQLRoom.GetAllCollectedInformationFromRoom(id);
+            return SQLRoom.GetAllCollectedInformationFromRoom(id, dorm);
         }
-
+        public  List<Room> GetAllEmptyRoomsByDorm(string dorm)
+        {
+            return SQLRoom.GetAllEmptyRoomsByDorm(dorm);
+        }
     }
 }
