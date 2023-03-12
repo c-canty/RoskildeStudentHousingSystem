@@ -9,19 +9,23 @@ namespace RoskildeStudentHousing.Pages.SharedClass
         IStudentService _iStudentService;
         ILeasingService _iLeasingService;
         IDormitoryService _dormitoryService;
+        IRoomService _roomService;
 
         [BindProperty] public string SearchString { get; set; }
         [BindProperty] public string SearchStringDorm { get; set; }
+        [BindProperty] public string SearchStringDorm2 { get; set; }
+        [BindProperty] public string SearchStringRid{ get; set; }
 
         public IEnumerable<Models.LeasingRoomStudentDorm> leasing { get; set; }
         public IEnumerable<Models.Dormitory> Dorms { get; set; }
 
-        public LeasingStudentsModel(IStudentService studentService, ILeasingService iLeasingService, IDormitoryService dormitoryService)
+        public LeasingStudentsModel(IStudentService studentService, ILeasingService iLeasingService, IDormitoryService dormitoryService, IRoomService roomService)
         {
             _iStudentService = studentService;
             _iLeasingService = iLeasingService;
             _dormitoryService = dormitoryService;
             Dorms = _dormitoryService.GetDormitory();
+            _roomService = roomService;
         }
 
         public void OnGet()
@@ -42,6 +46,11 @@ namespace RoskildeStudentHousing.Pages.SharedClass
         public IActionResult OnPostDormSearch(string dorm)
         {             
             leasing = _dormitoryService.GetAllCollectedInformationFromDorm2(SearchStringDorm); ;
+            return Page();
+        }
+        public IActionResult OnPostRoomSearch(string rid, string dorm)
+        {
+            leasing = _roomService.GetAllCollectedInformationFromRoom(SearchStringRid, SearchStringDorm2);
             return Page();
         }
     }
