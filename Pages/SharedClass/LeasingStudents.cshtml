@@ -56,8 +56,8 @@
         <td>
             <div class="col-4">
                 <form method="post" class="form-inline">
-                    <input asp-for="@Model.DateFrom" type="datetime-local" />
-                    <input asp-for="@Model.DateTo" type="datetime-local" />
+                    <input asp-for="@Model.DateFrom" type="date" />
+                    <input asp-for="@Model.DateTo" type="date" />
                     <input type="submit" asp-page-handler="DateSearch" value="Search Dates" class="btn btn-primary" />
                 </form>
             </div>
