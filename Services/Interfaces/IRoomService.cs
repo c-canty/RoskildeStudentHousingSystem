@@ -6,6 +6,8 @@ namespace RoskildeStudentHousing.Services.Interfaces
     public interface IRoomService
     {
         public IEnumerable<Room> GetRooms();
+        
+        public IEnumerable<Room> GetEmptyRooms();
 
         public void AddRoom(Room r);
 

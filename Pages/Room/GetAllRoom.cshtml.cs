@@ -19,5 +19,15 @@ namespace RoskildeStudentHousing.Pages.Room
         {
             rooms = _iroomService.GetRooms();
         }
+        public IActionResult OnPostEmpty()
+        {
+            rooms = _iroomService.GetEmptyRooms();
+            return Page();
+        }
+        public IActionResult OnPostReset()
+        {
+            rooms = _iroomService.GetRooms();
+            return Page();
+        }
     }
 }

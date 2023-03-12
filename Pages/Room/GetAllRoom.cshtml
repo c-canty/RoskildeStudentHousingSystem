@@ -6,6 +6,22 @@
 
 
 <h4 style="color:red">List of all rooms</h4>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <input type="submit" asp-page-handler="Empty" value="View Empty Rooms" class="btn btn-primary" />
+        </form>
+    </div>
+
+
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <input type="submit" asp-page-handler="Reset" value="View All Rooms" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+
 <table class="table">
     <thead>
         <tr>
