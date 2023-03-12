@@ -34,6 +34,13 @@
     </div>
     <div class="col-4">
         <form method="post" class="form-inline">
+            <input asp-for="@Model.DateFrom" type="datetime-local" />
+            <input asp-for="@Model.DateTo" type="datetime-local" />
+            <input type="submit" asp-page-handler="DateSearch" value="Search Dates" class="btn btn-primary" />
+        </form>
+    </div>
+    <div class="col-4">
+        <form method="post" class="form-inline">
             <input type="submit" asp-page-handler="Reset" value="Reset" class="btn btn-primary" />
         </form>
     </div>

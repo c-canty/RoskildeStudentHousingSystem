@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using RoskildeStudentHousing.Models;
 using RoskildeStudentHousing.Services.Interfaces;
 
 namespace RoskildeStudentHousing.Pages.SharedClass
@@ -15,8 +16,10 @@ namespace RoskildeStudentHousing.Pages.SharedClass
         [BindProperty] public string SearchStringDorm { get; set; }
         [BindProperty] public string SearchStringDorm2 { get; set; }
         [BindProperty] public string SearchStringRid{ get; set; }
+        [BindProperty] public DateTime DateFrom { get; set; }
+        [BindProperty] public DateTime DateTo { get; set; }
 
-        public IEnumerable<Models.LeasingRoomStudentDorm> leasing { get; set; }
+        public IEnumerable<Models.LeasingRoomStudentDorm> leasing { get; set; }   
         public IEnumerable<Models.Dormitory> Dorms { get; set; }
 
         public LeasingStudentsModel(IStudentService studentService, ILeasingService iLeasingService, IDormitoryService dormitoryService, IRoomService roomService)
@@ -51,6 +54,24 @@ namespace RoskildeStudentHousing.Pages.SharedClass
         public IActionResult OnPostRoomSearch(string rid, string dorm)
         {
             leasing = _roomService.GetAllCollectedInformationFromRoom(SearchStringRid, SearchStringDorm2);
+            return Page();
+        }
+        public IActionResult OnPostDateSearch(DateTime dateFrom, DateTime dateTo)
+        {
+            leasing = _iLeasingService.GetAllCollectedInformation();
+            List<LeasingRoomStudentDorm> leasingByDate = new List<LeasingRoomStudentDorm>();
+
+            foreach (var item in leasing)
+            {
+               leasingByDate.Add(item);
+
+                if (!(item.DateFrom >= DateFrom) || !(item.DateTo <= DateTo))
+                {
+                    leasingByDate.Remove(item);
+                }
+            }  
+
+            leasing = leasingByDate;
             return Page();
         }
     }
