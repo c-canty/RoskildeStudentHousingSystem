@@ -2,3 +2,44 @@
 @model RoskildeStudentHousing.Pages.Leasing.CreateLeasingModel
 @{
 }
+
+
+
+<h1>Create Leasing</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.LeasingNo" class="control-lable"></label>
+                <input asp-for="@Model.Leasing.LeasingNo" class="form-control"  />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.DateTimeFrom" class="control-lable"></label>
+                <input asp-for="@Model.Leasing.DateTimeFrom" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.DateTimeTo" class="control-lable"></label>
+                <input asp-for="@Model.Leasing.DateTimeTo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.StudentNo" class="control-lable"></label>
+                <input asp-for="@Model.Leasing.StudentNo" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.RoomNo" class="control-lable" readonly ></label>
+                <input asp-for="@Model.Leasing.RoomNo" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.Leasing.DormitoryNo" class="control-lable" readonly ></label>
+                <input asp-for="@Model.Leasing.DormitoryNo" class="form-control" readonly />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-page="/Leasing/GetAllLeasing">Back to List</a>
+</div>
