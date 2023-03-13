@@ -29,7 +29,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
 
         public Student GetStudentById(string id)
         {
-            return SQLStudent.GetStudentById(id);
+            return SQLStudent.GetStudentById(id); 
         }
 
         public IEnumerable<Student> FilterDormsByName(string filter)

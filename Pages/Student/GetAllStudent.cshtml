@@ -22,7 +22,10 @@
             </th>
             <th>
                 Student Address
-            </th>          
+            </th>
+            <th>
+                Delete Student
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -39,7 +42,10 @@
                     </td>
                     <td>
                         @student.Address
-                    </td>                    
+                    </td>
+                    <td>
+                        <a class="btn" type="button" asp-page="DeleteStudent" asp-route-studentNo="@student.StudentNo"><i class="fa fa-trash"></i></a>
+                    </td>
                 </tr>
             }
         }

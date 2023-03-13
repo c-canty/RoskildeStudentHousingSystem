@@ -73,7 +73,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #region Delete Dorm
         public static void DeleteStudent(Student s)
         {
-            string query = $"DELETE FROM Student WHERE Id = {s.StudentNo};";
+            string query = $"DELETE FROM Student WHERE Id = '{s.StudentNo}';";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -89,7 +89,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         public static Student GetStudentById(string id)
         {
             Student s = new Student();
-            string query = $"SELECT * FROM Student WHERE Id = {id};";
+            string query = $"SELECT * FROM Student WHERE Id = '{id}';";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
