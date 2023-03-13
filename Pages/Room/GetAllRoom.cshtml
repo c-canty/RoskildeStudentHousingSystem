@@ -65,6 +65,9 @@
                     <td>
                         @room.DormitoryNo
                     </td>
+                    <td>
+                        <a asp-page="/Leasing/CreateLeasing" asp-route-rid="@room.RoomNo" asp-route-did="@room.DormitoryNo">Create a new Leasing for this room</a>
+                    </td>
                 </tr>
             }
         }

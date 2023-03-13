@@ -39,13 +39,13 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #region Add Leasing
         public static void AddLeasing(Leasing r)
         {
-            string query = $"insert into Leasing( LeasingId, StudentId, DormId, RoomId, DateFrom, DateTo) values(  @LeasingId, @StudentId, @DormId, @RoomId, @DateFrom, @DateTo);";
+            string query = $"insert into Leasing(Id, StudentId, DormId, RoomId, DateFrom, DateTo) values(@Id, @StudentId, @DormId, @RoomId, @DateFrom, @DateTo);";
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
                 SqlCommand command = new SqlCommand(query, connection);
                 {
-                    command.Parameters.AddWithValue("@LeasingId", r.LeasingNo);
+                    command.Parameters.AddWithValue("@Id", r.LeasingNo);
                     command.Parameters.AddWithValue("@StudentId", r.StudentNo);
                     command.Parameters.AddWithValue("@DormId", r.DormitoryNo);
                     command.Parameters.AddWithValue("@RoomId", r.RoomNo);
