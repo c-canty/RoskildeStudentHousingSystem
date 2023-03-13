@@ -26,7 +26,7 @@ namespace RoskildeStudentHousing.Pages.Student
         {
             student = studentService.GetStudentById(StudentNo);
             studentService.DeleteStudent(student);
-            return RedirectToPage("GetAllStudent");
+            return RedirectToPage("/Student/GetAllStudent");
         }
     }
 }
