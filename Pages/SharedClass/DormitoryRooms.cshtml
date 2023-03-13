@@ -1,0 +1,58 @@
+﻿@page
+@model RoskildeStudentHousing.Pages.SharedClass.DormitoryRoomsModel
+@{
+    ViewData["Title"] = "GetDormintoryRoom";
+}
+
+
+<h4 style="color:red">List of all Room in this Dormitory</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dormitory Name
+            </th>
+            <th>
+                Room Number
+            </th>
+            <th>
+                Room Type
+            </th>
+            <th>
+                Address
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.dormsRooms != null)
+        {
+            @foreach (var DormRoom in Model.dormsRooms)
+            {
+                <tr>
+                    <td>
+                        @DormRoom.Name
+                    </td>
+                    <td>
+                        @DormRoom.RoomNo
+                    </td>
+                    <td>
+                        @DormRoom.Type
+                    </td>
+                    <td>
+                        @DormRoom.Address
+                    </td>
+                    <td>
+                        @DormRoom.Price
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="/Dormitory/GetAllDormitory">Back to List</a>
+</div>
+

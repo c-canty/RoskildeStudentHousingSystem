@@ -1,0 +1,53 @@
+﻿@page
+@model RoskildeStudentHousing.Pages.Dormitory.GettAllDormitoryModel
+@{
+    ViewData["Title"] = "GetDormintory";
+}
+
+<br />
+<p>
+    <a class="btn btn-primary" data-toggle="tooltip" title="Add Dormintory" asp-page="/Dormitory/CreateDormitory"><i class="fa fa-plus-square mr-1"></i> Create a new Dormitory </a>
+</p>
+<br />
+
+<h4 style="color:red">List of all rooms</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Dormitory number
+            </th>
+            <th>
+                Dormitory Name
+            </th>
+            <th>
+                Dormitory Address
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.dormitory != null)
+        {
+            @foreach (var dormitory in Model.dormitory)
+            {
+                <tr>
+                    <td>
+                        @dormitory.DormitoryNo
+                    </td>
+                    <td>
+                        @dormitory.Name
+                    </td>
+                    <td>
+                        @dormitory.Address
+                    </td>
+                    <td>
+                        <a asp-page="/SharedClass/DormitoryRooms" asp-route-id="@dormitory.DormitoryNo">See a list of all rooms in this dormitory</a>                           
+                    </td>
+                    <td>
+                        <a asp-page="/Room/CreateRoom" asp-route-did="@dormitory.DormitoryNo">Add Room to Dormitory</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

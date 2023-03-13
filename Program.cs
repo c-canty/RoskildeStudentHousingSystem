@@ -1,7 +1,20 @@
+using RoskildeStudentHousing.Services.Interfaces;
+using RoskildeStudentHousing.Services.MockDataServices;
+using RoskildeStudentHousing.Services.SQLServices;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//builder.Services.AddSingleton<IDormitoryService, MockDomitoryService>();
+//builder.Services.AddSingleton<ILeasingService, MockLeasingService>();
+//builder.Services.AddSingleton<IRoomService, MockRoomService>();
+//builder.Services.AddSingleton<IStudentService, MockStudentService>();
+
+builder.Services.AddTransient<IDormitoryService, SQLDormitoryService>();
+builder.Services.AddTransient<ILeasingService, SQLLeasingService>();
+builder.Services.AddTransient<IRoomService, SQLRoomService>();
+builder.Services.AddTransient<IStudentService,  SQLStudentService>();
 
 var app = builder.Build();
 

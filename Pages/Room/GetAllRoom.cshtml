@@ -1,0 +1,72 @@
+﻿@page
+@model RoskildeStudentHousing.Pages.Room.GetAllRoomModel
+@{
+    ViewData["Title"] = "GetRooms";
+}
+
+
+<h4 style="color:red">List of all rooms</h4>
+
+<div class="row">
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <input type="submit" asp-page-handler="Empty" value="View Empty Rooms" class="btn btn-primary" />
+        </form>
+    </div>
+
+
+    <div class="col-4">
+        <form method="post" class="form-inline">
+            <input type="submit" asp-page-handler="Reset" value="View All Rooms" class="btn btn-primary" />
+        </form>
+    </div>
+
+
+<div class="col-4">
+    <form method="post" class="form-inline">
+        <input asp-for="@Model.searchString" class="form-control mr-1" placeholder="Search Dorms For Empty Rooms" />
+        <input type="submit" asp-page-handler="EmptyDormSearch" value="Search" class="btn btn-primary" />
+    </form>
+</div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Room number
+            </th>
+            <th>
+                Room Type
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Dormitory number
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.rooms != null)
+        {
+            @foreach (var room in Model.rooms)
+            {
+                <tr>
+                    <td>
+                        @room.RoomNo
+                    </td>
+                    <td>
+                        @room.Type
+                    </td>
+                    <td>
+                        @room.Price
+                    </td>
+                    <td>
+                        @room.DormitoryNo
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

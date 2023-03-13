@@ -1,0 +1,47 @@
+﻿@page
+@model RoskildeStudentHousing.Pages.Student.GetAllStudentModel
+@{
+    ViewData["Title"] = "GetStudent";
+}
+
+<br />
+<p>
+    <a class="btn btn-primary" data-toggle="tooltip" title="Add Student" asp-page="/Student/CreateStudent"><i class="fa fa-plus-square mr-1"></i> Create a new Student </a>
+</p>
+<br />
+
+<h4 style="color:red">List of all students</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student number
+            </th>
+            <th>
+                Student Name
+            </th>
+            <th>
+                Student Address
+            </th>          
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.students != null)
+        {
+            @foreach (var student in Model.students)
+            {
+                <tr>
+                    <td>
+                        @student.StudentNo
+                    </td>
+                    <td>
+                        @student.Name
+                    </td>
+                    <td>
+                        @student.Address
+                    </td>                    
+                </tr>
+            }
+        }
+    </tbody>
+</table>
