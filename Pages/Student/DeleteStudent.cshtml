@@ -6,7 +6,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title"><small class="text-muted">@Model.student.StudentNo</small>@Model.student.StudentNo</h5>
+                <h5 class="modal-title"><small class="text-muted">@Model.student.StudentNo</small>@Model.student.Name</h5>
                 <a type="button" class="close" asp-page="UserStories">&times;</a>
             </div>
             <div class="modal-body">
@@ -16,7 +16,13 @@
                 
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-danger" asp-page="GetAllStudents">Close</a>
+                <div class="alert alert-danger">
+                    <h5>Are you sure you want to delete this Student - @Model.student.Name</h5>
+                    <form method="post">
+                        <button type="submit" class="btn btn-danger">Yes</button>
+                        <a class="btn btn-primary" asp-page="/GetAllStudent">No</a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
