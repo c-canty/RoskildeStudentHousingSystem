@@ -39,7 +39,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         public static List<Room> GetAllEmptyRooms()
         {
             List<Room> roomList = new List<Room>();
-            string query = "SELECT Room.Id, Room.Type, Room.Price, Room.DormId FROM Room LEFT JOIN Leasing ON Room.Id = Leasing.RoomId LEFT JOIN Dormitory ON Dormitory.Id = Room.DormId WHERE Leasing.RoomId IS NULL ;";
+            string query = "SELECT * FROM ROOM LEFT JOIN Occupied ON Room.Id = Occupied.Id WHERE Occupied.Id IS NULL";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
