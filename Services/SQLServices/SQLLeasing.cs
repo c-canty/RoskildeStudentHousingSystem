@@ -237,10 +237,11 @@ namespace RoskildeStudentHousing.Services.SQLServices
         #endregion
 
         #region Get Fucking Everything between dates
-        public static IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationByDate()
+        public static IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationByDate(DateTime dateFrom, DateTime dateTo)
         {
             List<LeasingRoomStudentDorm> roomList = new List<LeasingRoomStudentDorm>();
-            string query = $"SELECT s.Id AS StudentId, s.Name AS StudentName, r.Id AS RoomId, d.address,d.Name, r.Price,r.Type AS RoomType,l.DateFrom,l.DateTo, l.id FROM Leasing AS l JOIN Student AS s ON s.Id = l.StudentId JOIN Dormitory AS d ON d.Id = l.DormId JOIN Room AS r ON r.Id = l.RoomId;";
+            string query = $"SELECT s.Id AS StudentId, s.Name AS StudentName, r.Id AS RoomId, d.address,d.Name, r.Price,r.Type AS RoomType,l.DateFrom,l.DateTo, l.id FROM Leasing AS l JOIN Student AS s ON s.Id = l.StudentId JOIN Dormitory AS d ON d.Id = l.DormId JOIN Room AS r ON r.Id = l.RoomId " +
+                $"where DateTo between '{dateFrom}' and '{dateTo}' or DateFrom between '{dateFrom}' and '{dateTo}' or DateTo >= '{dateTo}' and DateFrom <= '{dateFrom}';";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
