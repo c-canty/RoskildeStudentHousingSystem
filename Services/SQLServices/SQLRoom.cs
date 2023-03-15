@@ -62,6 +62,35 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return roomList;
         }
         #endregion
+
+        #region Get All Empty Rooms
+        public static List<Room> GetAllOccupiedRooms()
+        {
+            List<Room> roomList = new List<Room>();
+            string query = "select * from Occupied";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Room r = new Room();
+                        r.RoomNo = Convert.ToInt32(reader[0]);
+                        r.Type = Convert.ToString(reader[1]);
+                        r.Price = Convert.ToInt32(reader[2]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
+
+                        roomList.Add(r);
+                    }
+                }
+            }
+            return roomList;
+        }
+        #endregion
+
         #region Get All Empty Rooms
         public static List<Room> GetAllEmptyRoomsByDorm(string dorm)
         {
