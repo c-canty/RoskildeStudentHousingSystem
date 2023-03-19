@@ -40,6 +40,12 @@ CREATE TABLE [dbo].[Leasing] (
     CONSTRAINT [FK_Leasing_ToRoom] FOREIGN KEY ([RoomId],[DormId]) REFERENCES [dbo].[Room] ([Id],[DormId]) ON DELETE CASCADE
 );
 
+--CREATE VIEW Occupied AS
+--	SELECT Room.Id, Room.Type, Room.Price, Room.DormId FROM Room 
+--	LEFT JOIN Leasing ON Room.Id = Leasing.RoomId 
+--	LEFT JOIN Dormitory ON Dormitory.Id = Room.DormId 
+--	where Leasing.DateTo >= getdate();
+
 INSERT INTO [dbo].[Student] ([Id], [Name], [Address]) VALUES (N'chre38eb', N'Christian Canty', N'Holbæk')
 INSERT INTO [dbo].[Student] ([Id], [Name], [Address]) VALUES (N'mads72q2', N' Mads Egelund Ludvigsen', N'Roskilde')
 INSERT INTO [dbo].[Student] ([Id], [Name], [Address]) VALUES (N'mille0212', N'Mille Alstrøm', N'Slagelse')

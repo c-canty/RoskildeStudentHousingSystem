@@ -39,7 +39,7 @@ namespace RoskildeStudentHousing.Services.SQLServices
         public static List<Room> GetAllEmptyRooms()
         {
             List<Room> roomList = new List<Room>();
-            string query = "SELECT Room.Id, Room.Type, Room.Price, Room.DormId FROM Room LEFT JOIN Leasing ON Room.Id = Leasing.RoomId LEFT JOIN Dormitory ON Dormitory.Id = Room.DormId WHERE Leasing.RoomId IS NULL ;";
+            string query = "SELECT * FROM ROOM LEFT JOIN Occupied ON Room.Id = Occupied.Id WHERE Occupied.Id IS NULL";
 
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -62,6 +62,35 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return roomList;
         }
         #endregion
+
+        #region Get All Empty Rooms
+        public static List<Room> GetAllOccupiedRooms()
+        {
+            List<Room> roomList = new List<Room>();
+            string query = "select * from Occupied";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                SqlCommand command = new SqlCommand(query, connection);
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Room r = new Room();
+                        r.RoomNo = Convert.ToInt32(reader[0]);
+                        r.Type = Convert.ToString(reader[1]);
+                        r.Price = Convert.ToInt32(reader[2]);
+                        r.DormitoryNo = Convert.ToInt32(reader[3]);
+
+                        roomList.Add(r);
+                    }
+                }
+            }
+            return roomList;
+        }
+        #endregion
+
         #region Get All Empty Rooms
         public static List<Room> GetAllEmptyRoomsByDorm(string dorm)
         {

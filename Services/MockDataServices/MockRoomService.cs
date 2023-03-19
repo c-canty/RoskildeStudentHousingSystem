@@ -62,6 +62,11 @@ namespace RoskildeStudentHousing.Services.MockDataServices
             throw new NotImplementedException();
         }
 
+        public IEnumerable<Room> GetOccupiedRooms()
+        {
+            throw new NotImplementedException();
+        }
+
         public Room GetRoomById(string rid, int did)
         {
             throw new NotImplementedException();

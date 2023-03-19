@@ -51,5 +51,9 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return SQLLeasing.GetAllCollectedInformation();
         }
 
+        public IEnumerable<LeasingRoomStudentDorm> GetAllCollectedInformationByDate(DateTime dateFrom, DateTime dateTo)
+        {
+            return SQLLeasing.GetAllCollectedInformationByDate(dateFrom, dateTo);
+        }
     }
 }

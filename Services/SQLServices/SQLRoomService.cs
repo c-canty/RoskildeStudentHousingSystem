@@ -16,6 +16,11 @@ namespace RoskildeStudentHousing.Services.SQLServices
             return SQLRoom.GetAllEmptyRooms();
         }
 
+        public IEnumerable<Room> GetOccupiedRooms()
+        {
+            return SQLRoom.GetAllOccupiedRooms();
+        }
+
         public void AddRoom(Room r)
         {
             SQLRoom.AddRoom(r);

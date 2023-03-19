@@ -18,6 +18,7 @@ namespace RoskildeStudentHousing.Services.Interfaces
         public Room GetRoomById(string rid, int did);
 
         public IEnumerable<Room> FilterDormsByName(string filter);
+        public IEnumerable<Room> GetOccupiedRooms();
 
         public IEnumerable<Room> FilterDormsByType(string filter);
 

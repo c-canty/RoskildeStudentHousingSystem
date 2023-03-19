@@ -58,20 +58,7 @@ namespace RoskildeStudentHousing.Pages.SharedClass
         }
         public IActionResult OnPostDateSearch(DateTime dateFrom, DateTime dateTo)
         {
-            leasing = _iLeasingService.GetAllCollectedInformation();
-            List<LeasingRoomStudentDorm> leasingByDate = new List<LeasingRoomStudentDorm>();
-
-            foreach (var item in leasing)
-            {
-               leasingByDate.Add(item);
-
-                if (!(item.DateFrom >= DateFrom) || !(item.DateTo <= DateTo))
-                {
-                    leasingByDate.Remove(item);
-                }
-            }  
-
-            leasing = leasingByDate;
+            leasing = _iLeasingService.GetAllCollectedInformationByDate(dateFrom , dateTo);
             return Page();
         }
     }
